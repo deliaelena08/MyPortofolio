@@ -1,14 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSettings } from '../context/SettingsContext';
 import { languages } from '../i18n/translations';
 
 export default function SettingsPanel() {
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme, language, setLanguage, t } = useSettings();
+  const triggerRef = useRef(null);
+  const closeRef = useRef(null);
+
+  // Minimal modal behavior: Escape closes, focus moves in on open and
+  // back to the trigger on close, body scroll is locked while open.
+  // ponytail: no full focus-trap (Tab wrap) — add if keyboard users report tabbing out.
+  useEffect(() => {
+    if (!open) return;
+
+    closeRef.current?.focus();
+    document.body.style.overflow = 'hidden';
+    const trigger = triggerRef.current;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+      trigger?.focus();
+    };
+  }, [open]);
 
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
         aria-label={t('settings')}
@@ -37,7 +62,7 @@ export default function SettingsPanel() {
         >
           <button
             type="button"
-            aria-label="Close settings"
+            aria-label={t('close')}
             onClick={() => setOpen(false)}
             className="absolute inset-0 bg-slate-900/40 dark:bg-background/70"
           />
@@ -46,9 +71,10 @@ export default function SettingsPanel() {
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-semibold">{t('settings')}</h2>
               <button
+                ref={closeRef}
                 type="button"
                 onClick={() => setOpen(false)}
-                aria-label="Close"
+                aria-label={t('close')}
                 className="rounded-full p-1 text-slate-500 hover:text-primary dark:text-text-muted"
               >
                 ✕
@@ -109,6 +135,7 @@ export default function SettingsPanel() {
               </h3>
               <div className="flex flex-col gap-3">
                 <a
+                  // TODO: replace with real repo URL before deploying
                   href="https://github.com/your-username/portfolio/issues/new"
                   target="_blank"
                   rel="noreferrer"
@@ -120,6 +147,7 @@ export default function SettingsPanel() {
                   <p className="font-medium text-slate-800 dark:text-text-main">
                     {t('contactMe')}
                   </p>
+                  {/* TODO: replace with real contact email before deploying */}
                   <a
                     href="mailto:you@example.com"
                     className="text-primary hover:underline"

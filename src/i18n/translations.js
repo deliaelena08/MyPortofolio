@@ -2,6 +2,7 @@
 export const translations = {
   en: {
     settings: 'Settings',
+    close: 'Close',
     language: 'Language',
     theme: 'Theme',
     dark: 'Dark',
@@ -12,6 +13,7 @@ export const translations = {
   },
   ro: {
     settings: 'Setări',
+    close: 'Închide',
     language: 'Limbă',
     theme: 'Temă',
     dark: 'Întunecat',
@@ -22,6 +24,7 @@ export const translations = {
   },
   de: {
     settings: 'Einstellungen',
+    close: 'Schließen',
     language: 'Sprache',
     theme: 'Thema',
     dark: 'Dunkel',
