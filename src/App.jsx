@@ -1,8 +1,11 @@
+import SettingsPanel from './components/SettingsPanel';
+
 function App() {
   return (
-    <div className="dark min-h-screen bg-background text-text-main">
+    <div className="min-h-screen bg-white text-slate-900 transition-colors dark:bg-background dark:text-text-main">
+      <SettingsPanel />
       <section className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-6">
-        <span className="mb-4 w-fit rounded-full border border-primary/30 bg-surface px-4 py-1 text-sm font-medium text-primary">
+        <span className="mb-4 w-fit rounded-full border border-primary/30 bg-slate-100 px-4 py-1 text-sm font-medium text-primary dark:bg-surface">
           Frontend Engineer
         </span>
 
@@ -12,7 +15,7 @@ function App() {
           interfaces for the web.
         </h1>
 
-        <p className="mt-6 max-w-xl text-lg text-text-muted">
+        <p className="mt-6 max-w-xl text-lg text-slate-600 dark:text-text-muted">
           I design and develop performant, accessible web experiences — blending
           clean engineering with a strong visual point of view.
         </p>
@@ -26,7 +29,7 @@ function App() {
           </a>
           <a
             href="#contact"
-            className="rounded-lg border border-text-muted/30 px-6 py-3 font-semibold text-text-main transition hover:border-primary hover:text-primary"
+            className="rounded-lg border border-slate-300 px-6 py-3 font-semibold text-slate-900 transition hover:border-primary hover:text-primary dark:border-text-muted/30 dark:text-text-main"
           >
             Contact Me
           </a>
