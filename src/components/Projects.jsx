@@ -14,6 +14,17 @@ const cardVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
+const SHORT_LABELS = { repo: 'View Code', api: 'API', ai: 'AI' };
+
+// camelCase link keys (e.g. "mppLabs") -> "Mpp Labs"; known short keys use SHORT_LABELS.
+function linkLabel(key) {
+  if (SHORT_LABELS[key]) return SHORT_LABELS[key];
+  return key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (c) => c.toUpperCase())
+    .trim();
+}
+
 function ProjectCard({ project }) {
   const linkEntries = Object.entries(project.links);
 
@@ -73,7 +84,7 @@ function ProjectCard({ project }) {
             rel="noreferrer"
             className="text-sm font-semibold text-slate-700 underline-offset-4 transition hover:text-primary hover:underline dark:text-text-main"
           >
-            {key === 'repo' ? 'View Code' : key.toUpperCase()}
+            {linkLabel(key)}
           </a>
         ))}
       </div>

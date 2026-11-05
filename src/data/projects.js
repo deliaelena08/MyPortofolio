@@ -7,7 +7,7 @@ export const projects = [
     subtitle: 'AI-powered dessert recommender — Bachelor thesis project',
     description:
       'A hybrid recommendation engine that turns natural-language cravings ("something fruity, no nuts") into safe, relevant dessert suggestions. Combines Sentence-Transformer embeddings (fine-tuned with TSDAE for Romanian) with deterministic allergen filtering, served through a microservices architecture with real-time updates and an interactive bakery map.',
-    role: 'Solo project — backend, AI microservice, frontend, and research',
+    role: 'Solo project',
     tags: [
       'React',
       'Spring Boot',
@@ -52,14 +52,50 @@ export const projects = [
   {
     slug: 'pet-explorer',
     title: 'PetExplorer',
-    subtitle: 'Team project — pet discovery platform',
+    subtitle: 'Mobile platform for pet owners — team project',
     description:
-      'A full-stack platform for discovering and exploring pets, built as part of a team. Contributed to backend and frontend development alongside the rest of the team.',
-    role: 'Team project — backend & frontend contributor',
-    tags: ['Backend', 'Frontend', 'Team Project'],
+      'A three-tier platform for pet owners: a native Android app for finding vets, parks, pet stores, and lost-pet listings, backed by a Spring Boot API and a dedicated Flask/Gemini microservice that auto-generates descriptions from lost-pet photos. Includes Google Maps integration and Google OAuth2 + 2FA login.',
+    role: 'Team project (11 contributors)',
+    tags: [
+      'Android',
+      'Spring Boot',
+      'Flask',
+      'Gemini API',
+      'PostgreSQL',
+      'OAuth2',
+    ],
     links: {
-      api: 'https://github.com/mariusvicol/PetExplorerBackend',
-      frontend: 'https://github.com/mariusvicol/PetExplorerFrontend',
+      api: 'https://github.com/deliaelena08/PetExplorerBackend',
+      frontend: 'https://github.com/deliaelena08/PetExplorerFrontend',
+    },
+    image: null,
+  },
+  {
+    slug: 'digital-triage-system',
+    title: 'Digital Triage System',
+    subtitle: 'AI-powered medical triage — team research project',
+    description:
+      'A dual-model triage pipeline trained on MIMIC-III clinical notes: BioBERT routes patients to the correct medical specialty (77.4% accuracy across 9 specialties), while PubMedBERT assesses case severity via discharge-disposition prediction (68.4% accuracy). Benchmarked against ClinicalBERT and RoBERTa, with SHAP-based explainability for clinical trust.',
+    role: 'Team project',
+    tags: ['Python', 'BioBERT', 'PubMedBERT', 'NLP', 'SHAP', 'MIMIC-III'],
+    links: {
+      // Repo is hosted under teammate Titieni Paul's account (public)
+      repo: 'https://github.com/tpaul790/DigitalTriage',
+    },
+    image: null,
+  },
+  {
+    slug: 'university-coursework',
+    title: 'Other University Projects',
+    subtitle: 'Selected coursework across semesters',
+    description:
+      'A selection of standalone projects from coursework: a tile-matching Memory Game built in C++ with Qt (click-tracking score system), parallel/distributed programming lab assignments (MPP), and the full semester-by-semester archive of smaller assignments and exercises.',
+    role: 'Solo coursework',
+    tags: ['C++', 'Qt', 'Java', 'Algorithms'],
+    links: {
+      memoryGame: 'https://github.com/deliaelena08/Memory-Game-Qt',
+      mppLabs: 'https://github.com/mpp-at-cs-ubbcluj-ro/teme-lab-deliaelena08',
+      archive: 'https://github.com/deliaelena08/University',
     },
     image: null,
   },
