@@ -1,4 +1,5 @@
 import SettingsPanel from './components/SettingsPanel';
+import Projects from './components/Projects';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           </a>
         </div>
       </section>
+
+      <Projects />
     </div>
   );
 }
