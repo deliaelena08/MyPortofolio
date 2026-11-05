@@ -1,4 +1,5 @@
 import SettingsPanel from './components/SettingsPanel';
+import Projects from './components/Projects';
 
 function App() {
   return (
@@ -6,7 +7,7 @@ function App() {
       <SettingsPanel />
       <section className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-6">
         <span className="mb-4 w-fit rounded-full border border-primary/30 bg-slate-100 px-4 py-1 text-sm font-medium text-primary dark:bg-surface">
-          Frontend Engineer
+          Full-stack developer
         </span>
 
         <h1 className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl">
@@ -35,6 +36,8 @@ function App() {
           </a>
         </div>
       </section>
+
+      <Projects />
     </div>
   );
 }
